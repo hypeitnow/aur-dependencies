@@ -23,18 +23,18 @@ if [[ -f "${BINARY}" ]]; then
 fi
 
 if [[ ! -x "${BINARY}" || "${NEWEST_SRC}" -gt "${BINARY_MTIME}" ]]; then
-  echo "=== Building aur-dependency-tracker (release) ==="
+echo "=== Building aur-dependency-tracker (release) ==="
   echo "+ cargo build --manifest-path \"${RUST_DIR}/Cargo.toml\" --release"
-  cargo build --manifest-path "${RUST_DIR}/Cargo.toml" --release
-  echo "=== Build finished ==="
-  # Ensure the bin directory exists and copy the compiled binary there
-  mkdir -p "${BIN_DIR}"
+cargo build --manifest-path "${RUST_DIR}/Cargo.toml" --release
+echo "=== Build finished ==="
+# Ensure the bin directory exists and copy the compiled binary there
+mkdir -p "${BIN_DIR}"
   echo "+ cp \"${RUST_DIR}/target/release/aur-dependency-tracker\" \"${BIN_DIR}/\""
-  cp "${RUST_DIR}/target/release/aur-dependency-tracker" "${BIN_DIR}/" || {
-    echo "Error: Compiled binary not found. Did the build succeed?" >&2
-    exit 1
-  }
-  echo "Binary copied to ${BIN_DIR}/aur-dependency-tracker"
+cp "${RUST_DIR}/target/release/aur-dependency-tracker" "${BIN_DIR}/" || {
+  echo "Error: Compiled binary not found. Did the build succeed?" >&2
+  exit 1
+}
+echo "Binary copied to ${BIN_DIR}/aur-dependency-tracker"
 else
   echo "Binary is up to date. Skipping build."
 fi
