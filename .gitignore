@@ -1,0 +1,19 @@
+# Rust
+/rust/target/
+**/*.rs.bk
+
+# Binaries
+/bin/
+/aur-dependency-tracker/bin/
+
+# Logs
+*.log
+
+# Editor/OS
+.DS_Store
+*.swp
+*.swo
+*~
+
+# Misc
+*.bak

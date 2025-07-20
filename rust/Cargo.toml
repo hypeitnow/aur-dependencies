@@ -2,6 +2,10 @@
 name = "aur-dependency-tracker"
 version = "0.1.0"
 edition = "2021"
+authors = ["Your Name <your.email@example.com>"]
+description = "A CLI tool for tracking remote and local AUR (Arch User Repository) package dependencies."
+license = "MIT"
+repository = "https://github.com/yourusername/aur-dependency-tracker"
 
 [dependencies]
 clap = { version = "4.0", features = ["derive"] }
