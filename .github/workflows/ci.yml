@@ -13,14 +13,15 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Set up Rust
-        uses: actions/setup-rust@v1
+        uses: actions-rs/toolchain@v1
         with:
-          rust-version: stable
+          toolchain: stable
+          override: true
       - name: Build
         run: |
-          cd aur-dependency-tracker/rust
+          cd rust
           cargo build --release
       - name: Test
         run: |
-          cd aur-dependency-tracker/rust
+          cd rust
           cargo test 
