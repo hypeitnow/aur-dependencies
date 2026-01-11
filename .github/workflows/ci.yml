@@ -3,10 +3,10 @@ env:
   CARGO_TERM_COLOR: always
 on:
   push:
-    branches: [ master ]
-    tags: [ 'v*' ]
+    branches: [master]
+    tags: ["v*"]
   pull_request:
-    branches: [ master ]
+    branches: [master]
   workflow_dispatch:
 
 jobs:
@@ -26,7 +26,7 @@ jobs:
       - name: Test
         run: |
           cd rust
-          cargo test 
+          cargo test
 
   release:
     name: Release
@@ -52,4 +52,4 @@ jobs:
         with:
           files: rust/target/release/aur-dependency-tracker
         env:
-          GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }} 
+          GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
